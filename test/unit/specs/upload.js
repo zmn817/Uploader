@@ -30,6 +30,9 @@ describe('upload file', function () {
 
   it('should pass query params', function () {
     uploader.opts.query = {}
+    uploader.opts.headers = {
+      Authorization: 'c6cf7785d327c7c6ed2e3245a72f6435'
+    }
     uploader.opts.target = 'file'
     uploader.addFile(new File(['123'], 'file'))
     uploader.upload()

@@ -35,12 +35,13 @@ var supportDirectory = (function () {
   return sd
 })()
 
-function Uploader (opts) {
+function Uploader (opts, headers = {}) {
   this.support = support
   /* istanbul ignore if */
   if (!this.support) {
     return
   }
+  Uploader.defaults.headers = headers
   this.supportDirectory = supportDirectory
   utils.defineNonEnumerable(this, 'filePaths', {})
   this.opts = utils.extend({}, Uploader.defaults, opts || {})
